@@ -5,7 +5,7 @@ This repository contains a day plan scheduler application that utilizes moment.j
 
 ## Usage
 
-This website can be accessed at 
+This website can be accessed at https://kevinleekwlee.github.io/work-day-scheduler/
 
 Below is a screenshot of the website. 
 
