@@ -11,7 +11,7 @@ displayDate();
 // Dictates the timeblocks to change color according to relative time.
 $(".timeDiv").each(function() {
     let timeDiv = $(this).attr("id");
-    let currentTime = 12;
+    let currentTime = moment().format("HH");
     console.log(timeDiv);
 
     if (currentTime == timeDiv){
