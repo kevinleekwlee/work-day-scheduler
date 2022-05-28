@@ -25,13 +25,37 @@ $(".timeDiv").each(function() {
     }  
 })
 
-// Use local storage to save schedule item entries to their matching timeDiv. 
+// Use local storage to render the last saved scheduled task and populate it into the matching time slot. 
+function renderLastRegistered() {
+    let userSlot = localStorage.getItem("slot");
+    let userTask = localStorage.getItem("task");
+    
+    console.log(userSlot);
+    console.log(userTask);
+
+    if (!slot || !task) {
+        return;
+    }
+
+    $("#task1").text(userTask);
+
+}
+
+// Use local storage to save schedule task entries to their matching time slot. 
 $(".saveBtn").click(function(event) {
     event.preventDefault();
     
-    let slot = 09;
-    let task = $(".task").val;
+    let slot = $(event.target).parent().parent().attr("id");
+    let task = $(event.target).parent().prev().children().val();
+    
     console.log(task);
+    console.log(slot);
 
-    localStorage.setItem(slot,task);    
-})
+    localStorage.setItem(slot,task);
+
+    renderLastRegistered();
+}
+
+    
+
+)
