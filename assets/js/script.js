@@ -1,7 +1,7 @@
 // Adds the current date in the header.
 function displayDate() {
     setInterval(function() {
-        let time = moment().format("MMM Do, YYYY, hh:mm:ss");
+        var time = moment().format("MMM Do, YYYY, hh:mm:ss");
         $("#currentDay").text(time);        
     }, 1000);
 }
@@ -13,7 +13,6 @@ $(".timeDiv").each(function() {
     let timeDiv = $(this).attr("id");
     let currentTime = moment().format("HH");
     console.log(timeDiv);
-    console.log(currentTime);
 
     if (currentTime == timeDiv){
         $(this).addClass("present");
@@ -26,8 +25,13 @@ $(".timeDiv").each(function() {
     }  
 })
 
-// Save schedule items and their matching timeDiv to local storage.
-$(".saveBtn").click(function(event){
+// Use local storage to save schedule item entries to their matching timeDiv. 
+$(".saveBtn").click(function(event) {
     event.preventDefault();
     
+    let slot = 09;
+    let task = $(".task").val;
+    console.log(task);
+
+    localStorage.setItem(slot,task);    
 })
