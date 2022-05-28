@@ -11,7 +11,7 @@ displayDate();
 // Dictates the timeblocks to change color according to relative time.
 $(".timeDiv").each(function() {
     let timeDiv = $(this).attr("id");
-    let currentTime = moment().format("HH");
+    let currentTime = 12;
     console.log(timeDiv);
 
     if (currentTime == timeDiv){
@@ -24,24 +24,9 @@ $(".timeDiv").each(function() {
         $(this).addClass("past");
     }  
 })
-
-// Use local storage to render the last saved scheduled task and populate it into the matching time slot. 
-function renderLastRegistered() {
-    let userSlot = localStorage.getItem("slot");
-    let userTask = localStorage.getItem("task");
-    
-    console.log(userSlot);
-    console.log(userTask);
-
-    if (!slot || !task) {
-        return;
-    }
-
-    $("#task1").text(userTask);
-
-}
-
+ 
 // Use local storage to save schedule task entries to their matching time slot. 
+
 $(".saveBtn").click(function(event) {
     event.preventDefault();
     
@@ -52,10 +37,18 @@ $(".saveBtn").click(function(event) {
     console.log(slot);
 
     localStorage.setItem(slot,task);
+});
 
-    renderLastRegistered();
-}
+// Use local storage to render the last saved scheduled task and populate it into the matching time slot upon page load.
 
-    
-
-)
+$(document).ready(function() {
+    $("#task1").text(localStorage.getItem("09"));
+    $("#task2").text(localStorage.getItem("10"));
+    $("#task3").text(localStorage.getItem("11"));
+    $("#task4").text(localStorage.getItem("12"));
+    $("#task5").text(localStorage.getItem("13"));
+    $("#task6").text(localStorage.getItem("14"));
+    $("#task7").text(localStorage.getItem("15"));
+    $("#task8").text(localStorage.getItem("16"));
+    $("#task9").text(localStorage.getItem("17"));
+});
